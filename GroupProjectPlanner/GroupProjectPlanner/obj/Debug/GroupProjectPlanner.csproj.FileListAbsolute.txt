@@ -1,0 +1,11 @@
+C:\Users\André\Backup Files\Side Projects\GroupProjectPlanner\GroupProjectPlanner\bin\Debug\GroupProjectPlanner.exe.config
+C:\Users\André\Backup Files\Side Projects\GroupProjectPlanner\GroupProjectPlanner\bin\Debug\GroupProjectPlanner.exe
+C:\Users\André\Backup Files\Side Projects\GroupProjectPlanner\GroupProjectPlanner\bin\Debug\GroupProjectPlanner.pdb
+C:\Users\André\Backup Files\Side Projects\GroupProjectPlanner\GroupProjectPlanner\obj\Debug\GroupProjectPlanner.csprojResolveAssemblyReference.cache
+C:\Users\André\Backup Files\Side Projects\GroupProjectPlanner\GroupProjectPlanner\obj\Debug\GroupProjectPlanner.Form1.resources
+C:\Users\André\Backup Files\Side Projects\GroupProjectPlanner\GroupProjectPlanner\obj\Debug\GroupProjectPlanner.Properties.Resources.resources
+C:\Users\André\Backup Files\Side Projects\GroupProjectPlanner\GroupProjectPlanner\obj\Debug\GroupProjectPlanner.csproj.GenerateResource.Cache
+C:\Users\André\Backup Files\Side Projects\GroupProjectPlanner\GroupProjectPlanner\obj\Debug\GroupProjectPlanner.csproj.CoreCompileInputs.cache
+C:\Users\André\Backup Files\Side Projects\GroupProjectPlanner\GroupProjectPlanner\obj\Debug\GroupProjectPlanner.exe
+C:\Users\André\Backup Files\Side Projects\GroupProjectPlanner\GroupProjectPlanner\obj\Debug\GroupProjectPlanner.pdb
+C:\Users\André\Backup Files\Side Projects\GroupProjectPlanner\GroupProjectPlanner\obj\Debug\GroupProjectPlanner.NewUser.resources
