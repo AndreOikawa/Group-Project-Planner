@@ -11,10 +11,15 @@ namespace GroupProjectPlanner
     {
         List<string> users;
         Dictionary<string, List<Item>> display;
-        string usersPath;
+        string basePath, usersPath, metadataPath;
+        int maxId = 0;
+        const string end = @"/-----\END/-----\";
 
         public Model()
         {
+            basePath = Directory.GetCurrentDirectory() + @"\configs";
+            //metadataPath = basePath + @"\metadata.txt";
+
             InitUsers();
             InitItems();
         }
@@ -22,7 +27,7 @@ namespace GroupProjectPlanner
         private void InitUsers()
         {
             users = new List<string>();
-            usersPath = Directory.GetCurrentDirectory() + @"\configs\users.txt";
+            usersPath = basePath + @"\users.txt";
 
             if (!File.Exists(usersPath))
             {
@@ -48,9 +53,70 @@ namespace GroupProjectPlanner
             }
         }
 
+        private void InitStage(string stage)
+        {
+            var stagePath = basePath + @"\" + stage + ".txt";
+            if (!File.Exists(stagePath))
+            {
+                using (StreamWriter sw = File.AppendText(usersPath))
+                {
+                    sw.WriteLine(end);
+                }
+                return;
+            }
+
+            string[] lines = File.ReadAllLines(usersPath);
+            int i = 0;
+            var item = new List<string>();
+            var info = new List<string>();
+
+            foreach (string line in lines)
+            {
+                if (line == end)
+                {
+                    string desc = "";
+                    for (int j = 0; j < info.Count - 1; j++)
+                    {
+                        desc += info[j] + Environment.NewLine;
+                    }
+                    desc += info[info.Count - 1];
+
+                    int id = int.Parse(item[0]);
+                    display[stage].Add(new Item(id, item[1], desc, item[3]));
+
+                    if (id > maxId) maxId = id;
+
+                    item.Clear();
+                    info.Clear();
+                    i = 0;
+                    continue;
+                }
+                if (i <= 2)
+                {
+                    // id name owner
+                    // 0  1    2
+                    item.Add(line);
+                    i++;
+                    continue;
+                }
+
+                info.Add(line);
+            }
+        }
+
         private void InitItems()
         {
-            display = new Dictionary<string, List<Item>>();
+            display = new Dictionary<string, List<Item>>
+            {
+                { "defined", new List<Item>() }
+            };
+            //display.Add("defined", new List<Item>());
+            //display.Add("defined", new List<Item>());
+            //display.Add("defined", new List<Item>());
+
+            InitStage("defined");
+
+
 
         }
 
@@ -62,6 +128,12 @@ namespace GroupProjectPlanner
         public void AddItem(string stage, Item newItem)
         {
             display[stage].Add(newItem);
+        }
+
+        public void AddItem(string stage, string name, string info, string owner)
+        {
+            display[stage].Add(new Item(maxId, name, info, owner));
+            maxId++;
         }
 
         public List<string> GetUsers()

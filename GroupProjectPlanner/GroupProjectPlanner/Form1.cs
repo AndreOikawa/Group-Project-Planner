@@ -13,13 +13,11 @@ namespace GroupProjectPlanner
     public partial class Form1 : Form
     {
         Model m;
-        List<Item> items;
 
         public Form1()
         {
             InitializeComponent();
             m = new Model();
-            items = new List<Item>();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -62,12 +60,19 @@ namespace GroupProjectPlanner
 
         private void btnAddDefined_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("clicked");
+            //MessageBox.Show("clicked");
+            NewItem form2 = new NewItem(this);
+            form2.Show();
         }
+
 
         public bool AddUser(string name)
         {
             return m.AddUser(name);
+        }
+        public void AddItem(string name, string info)
+        {
+            m.AddItem("defined", name, info, cmbUsers.SelectedText);
         }
     }
 }
